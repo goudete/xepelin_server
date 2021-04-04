@@ -19,9 +19,7 @@ module.exports = async (req, res) => {
     let connectionString = process.env.DATABASE_URL;
     
 
-    MongoClient.connect(connectionString, {
-    useUnifiedTopology: true
-    }, (err, client) => {
+    MongoClient.connect(connectionString, (err, client) => {
 
         if (err) return console.error(err);
 
