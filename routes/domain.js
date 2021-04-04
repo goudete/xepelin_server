@@ -18,13 +18,12 @@ module.exports = async (req, res) => {
             db.collection('urls').find().toArray().then(
             (results) => {
     
-            // store all domains in array
-            let domains = results.map((d) => d.domain);
-            // remove duplicates
-            domains = _.uniq(domains);
-    
-            // remove protocol
-            domains = domains.map( (d) => d.substring(4) )
+            
+            let domains = {};
+
+            results.forEach( (d) => domains[d.domain.substring(4)] = [] )
+            results.forEach( (d) => domains[d.domain.substring(4)].push(d.uniqueID) );
+
             res.json({ domains })
             }
         ).catch(error => console.error(error));
