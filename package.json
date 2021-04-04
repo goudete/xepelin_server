@@ -4,20 +4,19 @@
   "description": "technical interview",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "author": "Enrique Goudet",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "data-store": "^4.0.3",
-    "datastore": "^1.8.2",
     "express": "^4.17.1",
     "lodash": "^4.17.21",
-    "md5": "^2.3.0",
     "mongodb": "^3.6.5",
-    "nanoid": "^3.1.22",
-    "shortid": "^2.2.16",
-    "sqlite3": "^5.0.2"
+    "nanoid": "^3.1.22"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }

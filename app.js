@@ -7,11 +7,15 @@ var _ = require('lodash');
 // init express app
 const app = express();
 
-// parse application/x-www-form-urlencoded
-// parse application/json
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+
+// endpoints
+app.get('/', function (req, res) {
+  console.log('welcome')
+  res.json({'hola': "mundo"})
+});
 
 const shorten = require('./routes/shorten');
 app.post('/shorten', shorten);
@@ -22,11 +26,7 @@ app.get('/domain', domain);
 const getUrl = require('./routes/get-url');
 app.get('/:id', getUrl);
 
-app.get('/', function (req, res) {
-  console.log('welcome')
-  res.json({'hola': "mundo"})
-});
 
-app.listen(3003, function () {
+app.listen(process.env.PORT || 3003, () => {
   console.log('chillin\' on 3003');
 });
