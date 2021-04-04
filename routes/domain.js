@@ -4,6 +4,8 @@ var _ = require('lodash');
 
 module.exports = async (req, res) => {
     let connectionString = process.env.DATABASE_URL;
+    console.log('connectionString:', process.env.DATABASE_URL)
+
 
     MongoClient.connect(connectionString, {
         useUnifiedTopology: true
