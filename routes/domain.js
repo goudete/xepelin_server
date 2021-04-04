@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
             let domains = {};
 
             results.forEach( (d) => domains[d.domain.substring(4)] = [] )
-            results.forEach( (d) => domains[d.domain.substring(4)].push(d.uniqueID) );
+            results.forEach( (d) => domains[d.domain.substring(4)].push(d.urlPathName) );
 
             res.json({ domains })
             }
