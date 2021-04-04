@@ -3,7 +3,7 @@ const MongoClient = require('mongodb').MongoClient
 var _ = require('lodash');
 
 module.exports = async (req, res) => {
-    let connectionString = 'mongodb+srv://enrique:xepelin@cluster0.rnoiz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+    let connectionString = process.env.DATABASE_URL;
 
     MongoClient.connect(connectionString, {
         useUnifiedTopology: true
